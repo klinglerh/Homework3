@@ -1,0 +1,274 @@
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+p{
+    font-size: 18px;
+    font-weight: 100;
+}
+
+h1{
+    font-size: 30px;
+}
+
+nav.navGrid{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+     "desktopLogo topNav"
+    ;
+    padding: 10px;
+
+}
+
+.desktopLogo{
+    justify-content: flex-start;
+    margin-left: 40px;
+  }
+
+ul.topNav{
+    list-style-type: none;
+    color: #0D0D0D;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+li{
+    margin: 15px;
+    padding: 5px;
+}
+
+.topNav{
+    font-size: 20px;
+    font-weight: 100;
+    grid-area: topNav;
+}
+
+ul.aboutNav{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "mission mission story boards boards"
+    ;
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.hero{
+    width: 100%;
+}
+
+.mission{
+    grid-area: mission;
+    justify-self: right;
+}
+
+.story{
+    grid-area: story;
+    justify-self: center;
+    border-bottom: #FFC411 2px solid;
+}
+
+.boards{
+    grid-area: boards;
+    justify-self: left;
+}
+
+.ourStory{
+    margin: 20px;
+    padding: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.bios{
+    background-color: #0D0D0D;
+    color: white;
+}
+
+.individual{
+    display: grid;
+    grid-template-rows: 25% 75%;
+    grid-template-columns: 250px 75%;
+    grid-template-areas: 
+    "name name"
+    "headshot bioText";
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 20px;
+}
+
+.name{
+    grid-area: name;
+    font-size: 24px;
+    color: #FFC411;
+    align-self: end;
+}
+
+.headshot{
+    grid-area: headshot;
+
+}
+
+.bioText{
+    grid-area: bioText;
+    margin: 0px;
+    
+}
+
+.footerGrid{
+    display: grid;
+    grid-template-columns: 120px 250px 6fr 6fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "contactUs subscribe facebook youtube vimeo spotify";
+    list-style-type: none;
+    text-decoration-color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 10px;
+}
+
+.contactUs{
+    grid-area: contactUs;
+    grid-column: 1;
+}
+
+.subscribe{
+    grid-area: subscribe;
+    grid-column: 2;
+}
+
+.facebook{
+    grid-area: facebook;
+    grid-column: 5;
+}
+
+.youtube{
+    grid-area: youtube;
+    grid-column: 6;
+}
+
+.vimeo{
+    grid-area: vimeo;
+    grid-column: 7;
+}
+
+.spotify{
+    grid-area: spotify;
+    grid-column: 8;
+}
+
+@media only screen and (max-width: 1300px){
+    ul.topNav {
+        display: none;
+    }
+
+    .line1, .line2, .line3{
+        display: block;
+            width: 50px;
+            height: 5px;
+            background-color: #0D0D0D;
+            border-radius: 10px;
+            margin: 10px 10px;
+    }
+
+    .hamburgerLines{
+        position: absolute;
+            right: 0px;
+            top: 0px;
+            padding-right: 30px;
+            padding-top: 20px;
+    }
+      
+}
+
+
+@media only screen and (max-width: 800px){
+    
+    ul.aboutNav{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            " mission story boards"
+        ;
+        list-style-type: none;
+        font-size: 20px;
+        font-weight: 100;
+    }
+
+
+    .individual{
+        grid-template-rows: 75px 350px 4fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "name"
+        "headshot" 
+        "bioText"
+        ;
+        margin-right: 10%;
+        margin-left: 10%;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        padding: 20px;
+    }
+
+    .footerGrid{
+        grid-template-columns: 30% 10% 10% 10% 10% 30%;
+        grid-template-rows: 25px 25px 50px;
+        grid-template-areas:
+        "contactUs contactUs contactUs contactUs "
+        "subscribe subscribe subscribe subscribe" 
+        "facebook youtube vimeo spotify";
+        margin: 5px;
+        padding: 5px;
+    }
+    .contactUs{
+        grid-column: span 2/5;
+        justify-self: center;
+        align-self: center;
+    }
+    .subscribe{
+        grid-column: span 6;
+        justify-self: center;
+        align-self: center;
+    }
+    .facebook{
+        grid-column: 2;
+        justify-self: center;
+        align-self: center;
+    }
+    .youtube{
+        grid-column: 3;
+        justify-self: center;
+        align-self: center;
+    }
+    .vimeo{
+        grid-column: 4;
+        justify-self: center;
+        align-self: center;
+    }
+    .spotify{
+        grid-column: 5;
+        justify-self: center;
+        align-self: center;
+    }
+
+}
