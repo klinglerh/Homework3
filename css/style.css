@@ -3,13 +3,99 @@ html{
     box-sizing: border-box;
 }
 
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.html {
+  font-size: 62.5%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+  /* ............/navbar/............ */
+  
+  .navbar {
+    box-shadow: 0px 5px 10px 0px #aaa;
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    opacity: 0.85;
+    height: 85px;
+    z-index: 12;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    /*align-items: center;*/
+    height: 85px;
+    padding: 0px;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  .logo {
+    order: 1;
+    justify-content: flex-start;
+  }
+
+  /*
+  .navbar input[type="checkbox"],
+  */
+  .hamburger-lines {
+    display: none;
+  }
+  
+  .menu-items {
+    order: 2;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .menu-items li {
+    list-style: none;
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  ul.menu-items{
+      margin-top: 40px;
+  }
+  
+  .menu-items a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .menu-items a:hover {
+    color: #117964;
+    transition: color 0.3s ease-in-out;
+  }
+
+  img.search{
+      margin-top: -10px;
+  }
+  
+ 
+/* HEATHER's ORIGINAL BODY! ----*
 body{
-    margin: 0px;
+    margin-top: 0px;
     padding: 0px;
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
 }
-
 
 p{
     font-size: 18px;
@@ -20,23 +106,22 @@ h1{
     font-size: 30px;
 }
 
-nav.navGrid{
+nav.navbar{
     display: grid;
     grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr;
     grid-template-areas:
-     "desktopLogo topNav"
-    ;
+     "desktopLogo menu-items";
     padding: 10px;
-
 }
 
-.desktopLogo{
-    justify-content: flex-start;
-    margin-left: 40px;
+.logo{
+    grid-area: desktopLogo;
+    justify-self: flex-start;
+    align-items: center;
   }
 
-ul.topNav{
+ul.menu-items{
     list-style-type: none;
     color: #0D0D0D;
     margin: 0px;
@@ -51,26 +136,33 @@ li{
     padding: 5px;
 }
 
-.topNav{
+.menu-items{
     font-size: 20px;
     font-weight: 100;
-    grid-area: topNav;
+    grid-area: menu-items;
 }
+*/
 
-ul.aboutNav{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-        "mission mission story boards boards"
-    ;
-    list-style-type: none;
-    font-size: 20px;
-    font-weight: 100;
-}
+
+/* ............/main page content/............ */
 
 .hero{
     width: 100%;
+    margin-top: 87px;
+}
+
+
+ul.aboutNav{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+      "mission mission story boards boards"
+  ;
+  list-style-type: none;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 10px;
 }
 
 .mission{
@@ -176,32 +268,112 @@ ul.aboutNav{
     grid-column: 8;
 }
 
-@media only screen and (max-width: 1300px){
-    ul.topNav {
-        display: none;
-    }
+@media (max-width: 1225px){
 
     .line1, .line2, .line3{
         display: block;
-            width: 50px;
-            height: 5px;
-            background-color: #0D0D0D;
-            border-radius: 10px;
-            margin: 10px 10px;
+        width: 50px;
+        height: 5px;
+        background-color: #0D0D0D;
+        border-radius: 10px;
+        margin: 8px auto;
+        transition: all 0.3s ease-in-out;
     }
 
-    .hamburgerLines{
-        position: absolute;
-            right: 0px;
-            top: 0px;
-            padding-right: 30px;
-            padding-top: 20px;
+    .hamburger-lines{
+      order: 2;
+      display: block;
+      justify-content: flex-end;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      padding-right: 30px;
+      padding-top: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .hamburger-lines:hover{
+      cursor: pointer;
+    }
+
+    #hamburger-1.is-active .line2{
+      opacity: 0;
     }
       
-}
+      #hamburger-1.is-active .line1{
+        transform: translateY(13px) rotate(45deg);
+      }
+      
+      #hamburger-1.is-active .line3{
+        transform: translateY(-13px) rotate(-45deg);
+      }
+      
+       ul.menu-items{
+        display: none;
+        flex-direction: column;
+        justify-content:flex-start;
+        width: 300px;
+        height: 800px;
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        z-index: -1;
+        background-color: #ffff;
+        overflow-x: hidden;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 5px 10px 0px #aaa;
+        opacity: 1;
+        margin: 0;
+        padding-top: 90px;
+        padding-left: 20px;
+        transition: all 0.3s ease-in-out;
+      }
+      .menu-items li{
+        padding-bottom: 30px;
+      }
 
+  
+  @media (max-width: 500px) {
+    html {
+      font-size: 65%;
+    }
+  
+    .navbar .menu-items li{
+        font-size: 1.6rem;
+    }
 
-@media only screen and (max-width: 800px){
+    .logo {
+      position: absolute;
+      top: 06px;
+      right: 15px;
+      font-size: 3rem;
+    }
+  
+    .navbar .menu-items li {
+      margin-bottom: 2.5rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  
+  }
+  
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .img-container h3 {
+      font-size: 1.5rem;
+    }
+  
+    .img-container .btn {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media (orientation: landscape) and (max-height: 500px) {
+    .showcase-area {
+      height: 50vmax;
+    }
+  }
+
+  @media (max-width: 800px){
     
     ul.aboutNav{
         grid-template-columns: 1fr 1fr 1fr;
@@ -270,5 +442,5 @@ ul.aboutNav{
         justify-self: center;
         align-self: center;
     }
-
+  }
 }
