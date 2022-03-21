@@ -13,11 +13,17 @@ $(document).ready(function () {
         }
 
     });
-    /*
+
     window.addEventListener('resize', function (event)  { console.log("Big Sandwich");
-        if ($(window).width() > 1225) {
+        if ($(window).width() > 1226) {
             $("ul.menu-items").css("display", "flex");
             $("#hamburger-1").removeClass("is-active");
         }
-    }, true); */
+    }, true);
+    
+    window.addEventListener('resize', function (event)  { console.log("Big Sandwich");
+        if ($(window).width() < 1226) {
+            $("ul.menu-items").css("display", "none");
+        }
+    }, true);
 });
